@@ -20,13 +20,13 @@ this task completes with all clarifying questions answered and
 
 ### Goals
 
-| ID | Title | Description |
-|---|---|---|
-| **G1** | Review and customize domain files | Read each domain file, identify what needs project-specific customization, and fill in the details |
-| **G2** | Answer clarifying questions | Answer all 7 clarifying questions in `SETUP.md` to gather project information |
-| **G3** | Create project README.md | Synthesize customized domain files and answers into a GitHub-style project README |
-| **G4** | Research dependencies | Research dependencies, patterns, and tools from authoritative documentation sources (latest stable versions) |
-| **G5** | Validate and finalize | Run `validate_domain.py`, confirm exit code 0, and update state.md |
+| ID     | Title                             | Description                                                                                                  |
+| ------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **G1** | Review and customize domain files | Read each domain file, identify what needs project-specific customization, and fill in the details           |
+| **G2** | Answer clarifying questions       | Answer all 7 clarifying questions in `SETUP.md` to gather project information                                |
+| **G3** | Create project README.md          | Synthesize customized domain files and answers into a GitHub-style project README                            |
+| **G4** | Research dependencies             | Research dependencies, patterns, and tools from authoritative documentation sources (latest stable versions) |
+| **G5** | Validate and finalize             | Run `validate_domain.py`, confirm exit code 0, and update state.md                                           |
 
 ### Domain Rules Being Applied
 

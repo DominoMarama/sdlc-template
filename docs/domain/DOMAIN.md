@@ -60,6 +60,12 @@ See `terminology.md` for the glossary.
    your choice.
 4. **Update state.md after every step**, not at the end.
 5. **Remember: I write code, human builds.** Do not attempt to run the build.
+6. **Stop and ask for plan approval.** When no plan is approved, halt
+   immediately. Do not write code or proceed. Ask the human to review/approve
+   the plan, request changes, or provide more details.
+7. **Ask one clarifying question at a time.** When unsure of something or
+   stuck in a loop due to conflicting options, ask the human exactly one
+   clarifying question. Do not list multiple questions or continue guessing.
 
 ### For Humans
 

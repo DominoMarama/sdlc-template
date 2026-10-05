@@ -14,16 +14,18 @@
 | **Agents cannot modify DOMAIN.md without human review**             | The domain is the constitution; changes must be deliberate                                    |
 | **Agents cannot modify validate_domain.py without human authorization** | The validation script defines what a properly set-up domain looks like; changing it could allow incomplete domains to pass validation, defeating the guardrail's purpose.
 | **Agents cannot run build tools**                                   | Human verifies builds; agents write configuration only                                        |
+| **Stop and ask for plan approval**                                 | When no plan is approved, halt immediately. Do not write code or proceed. Ask the human to review/approve the plan, request changes, or provide more details before continuing.
+| **One clarifying question at a time**                              | When unsure of something or stuck in a loop due to conflicting options, ask the human exactly one clarifying question. Do not list multiple questions or continue guessing.
 | **Placeholder markers in domain files are not rules**               | `[FILL IN]`, `<!-- TODO -->`, etc. are reminders, not constraints. Never cite them as rules   |
 | **Domain must be placeholder-free before loading to system prompt** | Incomplete domains lead to incorrect agent behavior                                           |
 
 ## Memory & Resource Safety
 
-| Rule | Rationale |
-|---|---|
-| **No unmanaged resources** | All resources (files, handles, connections) must have a clear owner and cleanup path |
-| **All file handles must be closed** | Use context managers or RAII; never rely on OS cleanup |
-| **No raw pointer arithmetic** | Use safe abstractions; the language's safety features are part of the contract |
+| Rule                                | Rationale                                                                            |
+| ----------------------------------- | ------------------------------------------------------------------------------------ |
+| **No unmanaged resources**          | All resources (files, handles, connections) must have a clear owner and cleanup path |
+| **All file handles must be closed** | Use context managers or RAII; never rely on OS cleanup                               |
+| **No raw pointer arithmetic**       | Use safe abstractions; the language's safety features are part of the contract       |
 
 ## Dependency Rules
 

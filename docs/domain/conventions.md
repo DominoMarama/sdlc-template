@@ -13,6 +13,8 @@
 | **Placeholder markers are not rules** | `[FILL IN]`, `<!-- TODO -->`, etc. are reminders, not constraints. Never cite them |
 | **Domain-setup task comes first** | For new projects, complete the domain-setup task before any code tasks |
 | **Deep-dive research from authoritative sources** | When researching dependencies or patterns, use official documentation (latest stable version) as the primary source |
+| **Stop for unapproved plans** | If no plan is approved, halt and ask the human to review/approve, request changes, or provide more details. Do not proceed without approval.
+| **One clarifying question at a time** | When unsure or stuck in a loop due to conflicting options, ask exactly one clarifying question. Do not list multiple questions or continue guessing.
 | **GUI mockups before implementation** | For UI requirements, create wireframes/mockups in the plan phase before writing code |
 | **Task splitting recognized during planning** | If a goal is large, complex, or spans multiple domains, propose it as a separate task with its own domain setup |
 
