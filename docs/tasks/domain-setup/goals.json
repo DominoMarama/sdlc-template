@@ -160,6 +160,26 @@
         "G4"
       ],
       "status": "pending"
+    },
+    {
+      "id": "G5",
+      "title": "Initialize Project Layer",
+      "description": "Create docs/project/ with the placeholder structure so tasks have a place to store task-agnostic knowledge.",
+      "steps": [
+        {
+          "order": 1,
+          "action": "Create docs/project/ directory with research/, design/, reference/, architecture/ subdirectories"
+        },
+        {
+          "order": 2,
+          "action": "Copy placeholder READMEs from the template into each subdirectory"
+        }
+      ],
+      "dependencies": [
+        "G1",
+        "G2"
+      ],
+      "status": "pending"
     }
   ],
   "domain_refs": {

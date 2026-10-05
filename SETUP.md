@@ -72,7 +72,9 @@ After either method, continue with the remaining steps:
 5. **Complete the domain-setup task** in `docs/tasks/domain-setup/`. This
    is the first task for any new project. The domain is only loadable when
    this task completes with zero placeholders remaining.
-6. **Load** the completed DOMAIN.md into your agent's system prompt at
+6. **Create** the project layer: `docs/project/` with research/, design/,
+   reference/, architecture/ subdirectories — tasks will populate these as they go
+7. **Load** the completed DOMAIN.md into your agent's system prompt at
    session start. The domain must pass validate_domain.py (exit code 0)
    before loading.
 

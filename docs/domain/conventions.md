@@ -16,6 +16,19 @@
 | **GUI mockups before implementation** | For UI requirements, create wireframes/mockups in the plan phase before writing code |
 | **Task splitting recognized during planning** | If a goal is large, complex, or spans multiple domains, propose it as a separate task with its own domain setup |
 
+## Project Documentation Conventions
+
+The project layer (`docs/project/`) accumulates task-agnostic knowledge that
+stays current across tasks. Follow these conventions:
+
+| Aspect | Rule |
+|---|---|
+| **File organization** | Group by topic, not task: `docs/project/research/`, `docs/project/design/`, `docs/project/reference/` |
+| **Cite project docs in tasks** | Every task's plan.md/context.md should reference relevant project docs. Update them as you go. |
+| **One source of truth** | If a task discovers something during research, create or update the project doc — don't duplicate in task docs |
+| **Living documents** | Project docs grow over time. Old tasks link to them; new tasks build on them. Never rewrite from scratch. |
+| **Naming** | `research-<topic>.md`, `design-<name>.md`, `reference-<lib>.md` — descriptive, task-agnostic titles |
+
 ## Naming Conventions
 
 | Element | Rule | Example |
