@@ -12,6 +12,7 @@
 | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | **No code without approved plan + context + goals**                 | Domain bug prevention — prevents drift and ensures every change is intentional and documented |
 | **Agents cannot modify DOMAIN.md without human review**             | The domain is the constitution; changes must be deliberate                                    |
+| **Agents cannot modify validate_domain.py without human authorization** | The validation script defines what a properly set-up domain looks like; changing it could allow incomplete domains to pass validation, defeating the guardrail's purpose.
 | **Agents cannot run build tools**                                   | Human verifies builds; agents write configuration only                                        |
 | **Placeholder markers in domain files are not rules**               | `[FILL IN]`, `<!-- TODO -->`, etc. are reminders, not constraints. Never cite them as rules   |
 | **Domain must be placeholder-free before loading to system prompt** | Incomplete domains lead to incorrect agent behavior                                           |
