@@ -1,0 +1,29 @@
+# Build artifacts
+*/build/
+*.o
+*.so
+*.dll
+*.dylib
+*.exe
+*.pyc
+__pycache__/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Template placeholders (when filled in)
+!docs/domain/DOMAIN.md
+!docs/domain/capabilities.md
+!docs/domain/conventions.md
+!docs/domain/constraints.md
+!docs/domain/terminology.md
+
+# Validate domain structure before starting tasks
+!scripts/validate_domain.py

@@ -1,0 +1,147 @@
+{
+  "task_id": "DOMAIN-SETUP",
+  "title": "Domain Setup — Review and Customize Pre-filled Domain Files",
+  "description": "Set up the domain documentation for a new project. The domain files come pre-filled with working defaults. This task reviews them, answers the clarifying questions in README.md, and customizes them for your specific project.",
+  "goals": [
+    {
+      "id": "G1",
+      "title": "Review and customize domain files",
+      "description": "Read each domain file (DOMAIN.md, capabilities.md, conventions.md, constraints.md, terminology.md), identify what needs project-specific customization, and fill in the details. The files come pre-filled with working defaults — only customize where your project differs.",
+      "steps": [
+        {
+          "order": 1,
+          "action": "Read docs/domain/DOMAIN.md and note sections needing project-specific rules",
+          "file": "docs/domain/DOMAIN.md"
+        },
+        {
+          "order": 2,
+          "action": "Read docs/domain/capabilities.md and update with project-specific capabilities",
+          "file": "docs/domain/capabilities.md"
+        },
+        {
+          "order": 3,
+          "action": "Read docs/domain/conventions.md and fill in language-specific conventions",
+          "file": "docs/domain/conventions.md"
+        },
+        {
+          "order": 4,
+          "action": "Read docs/domain/constraints.md and add project-specific constraints",
+          "file": "docs/domain/constraints.md"
+        },
+        {
+          "order": 5,
+          "action": "Read docs/domain/terminology.md and add project-specific terms",
+          "file": "docs/domain/terminology.md"
+        }
+      ],
+      "dependencies": [],
+      "status": "pending"
+    },
+    {
+      "id": "G2",
+      "title": "Answer clarifying questions",
+      "description": "Answer all 6 clarifying questions in README.md to gather project information and fill in the blanks in the domain files.",
+      "steps": [
+        {
+          "order": 1,
+          "action": "Answer Question 1: What is your project? (language/paradigm)",
+          "file": "README.md"
+        },
+        {
+          "order": 2,
+          "action": "Answer Question 2: What are your non-negotiable constraints?",
+          "file": "README.md"
+        },
+        {
+          "order": 3,
+          "action": "Answer Question 3: What is your sandbox's build access policy?",
+          "file": "README.md"
+        },
+        {
+          "order": 4,
+          "action": "Answer Question 4: What capabilities should the agent have?",
+          "file": "README.md"
+        },
+        {
+          "order": 5,
+          "action": "Answer Question 5: What naming/convention rules apply?",
+          "file": "README.md"
+        },
+        {
+          "order": 6,
+          "action": "Answer Question 6: What does done look like for your project?",
+          "file": "README.md"
+        }
+      ],
+      "dependencies": ["G1"],
+      "status": "pending"
+    },
+    {
+      "id": "G3",
+      "title": "Deep-dive research",
+      "description": "Research dependencies, patterns, and tools from authoritative documentation sources (latest stable versions) and document findings where relevant in the domain files.",
+      "steps": [
+        {
+          "order": 1,
+          "action": "Identify all dependencies your project will use",
+          "file": "docs/domain/"
+        },
+        {
+          "order": 2,
+          "action": "Research each dependency from official documentation (latest stable version)",
+          "file": "docs/tasks/domain-setup/context.md"
+        },
+        {
+          "order": 3,
+          "action": "Document dependency inclusion and usage patterns in conventions.md",
+          "file": "docs/domain/conventions.md"
+        }
+      ],
+      "dependencies": ["G2"],
+      "status": "pending"
+    },
+    {
+      "id": "G4",
+      "title": "Validate and finalize",
+      "description": "Run validate_domain.py, confirm exit code 0, and update state.md to mark completion. The domain is ready to load into the system prompt.",
+      "steps": [
+        {
+          "order": 1,
+          "action": "Run python scripts/validate_domain.py",
+          "command": "python scripts/validate_domain.py"
+        },
+        {
+          "order": 2,
+          "action": "Fix any errors reported by validate_domain.py",
+          "file": "docs/domain/"
+        },
+        {
+          "order": 3,
+          "action": "Run validate_domain.py again to confirm exit code 0",
+          "command": "python scripts/validate_domain.py"
+        },
+        {
+          "order": 4,
+          "action": "Update state.md to mark all goals complete and add completion date",
+          "file": "docs/tasks/domain-setup/state.md"
+        }
+      ],
+      "dependencies": ["G2", "G3"],
+      "status": "pending"
+    }
+  ],
+  "domain_refs": {
+    "capabilities": [
+      "docs/domain/capabilities.md#task-decomposition",
+      "docs/domain/capabilities.md#deep-dive-research"
+    ],
+    "conventions": [
+      "docs/domain/conventions.md#sdlc-workflow-conventions",
+      "docs/domain/conventions.md#naming-conventions"
+    ],
+    "constraints": [
+      "docs/domain/constraints.md#sdcl-workflow-constraints",
+      "docs/domain/constraints.md#memory-&-resource-safety"
+    ]
+  }
+}
