@@ -169,6 +169,8 @@ MIT — see [LICENSE](LICENSE) for details.
 
 ---
 
-**Developed and maintained in `unsloth-tmp/sdlc-template`.** The domain files
-come pre-filled with working defaults; customize them via the setup process
-described in [SETUP.md](SETUP.md).
+## Project Information
+
+Replace this section with your project's name, repository URL, and
+maintainer details. The template provides a neutral starting point;
+customize it as part of your domain setup.
