@@ -1,11 +1,11 @@
 # SDLC Domain Template
 
-A reusable, language-agnostic template for setting up the **Domain/Problem**
+A reusable, language-agnostic template for setting up the **Domain/Task**
 documentation hierarchy used by agentic AI systems. Use it to prevent context
 loss, keep agents aligned with your project rules, and maintain a consistent
 SDLC across all tasks.
 
-## The Problem: Agents Lose Context
+## The Task: Agents Lose Context
 
 Agentic AI systems work by injecting knowledge into a "system prompt." Over time,
 as tasks accumulate, this prompt grows unwieldy, rules get mixed with task-specific
@@ -40,7 +40,7 @@ This template implements a three-layer documentation structure:
              │ Tasks cite and update
              ▼
 ┌─────────────────────────────────────────┐
-│       PROBLEM LAYER (Per Task)          │
+│        TASK LAYER (Per Task)           │
 │  docs/tasks/<task-id>/ — task-specific │
 │  • plan.md      — agent proposes       │
 │  • context.md   — deep-dive lookup    │
@@ -52,7 +52,7 @@ This template implements a three-layer documentation structure:
 **The domain layer is your constitution** — stable, always-present rules that
 never change per task. **The project layer is your growing knowledge base** —
 task-agnostic facts that accumulate so future tasks cite and update rather than
-re-discover. **The problem layer is your execution log** — task-specific
+re-discover. **The task layer is your execution log** — task-specific
 instantiation that gets created, approved, and completed.
 
 This three-layer separation prevents agents from mixing general knowledge with
@@ -142,6 +142,9 @@ rules and conventions, then populate `docs/project/` and `docs/tasks/` as you wo
          │
          ▼
   7. UPDATE DOCS             ← Updated WITH code, not after
+         │
+         ▼
+  7. UPDATE DOCS             ← Updated WITH code, not after
 ```
 
 ## Key Rules
@@ -157,9 +160,9 @@ rules and conventions, then populate `docs/project/` and `docs/tasks/` as you wo
 |---|---|
 | **Domain Layer** | Always-present knowledge base: conventions, constraints, capabilities |
 | **Project Layer** | Task-agnostic knowledge: research notes, UI mocks, class definitions, quick references |
-| **Problem** | Task-specific instantiation: goals, inputs, approved plan, overrides |
+| **Task** | Task-specific instantiation: goals, inputs, approved plan, overrides |
 | **System Prompt** | Where the domain layer lives — injected once at session start |
-| **Plan Approval** | Human review step where the problem layer is validated against the domain |
+| **Plan Approval** | Human review step where the task layer is validated against the domain |
 | **Deep Dive** | On-demand lookup of specific domain sections when uncertain |
 | **Build Gate** | Human-only: agent writes configuration, human runs build |
 

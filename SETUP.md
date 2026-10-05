@@ -1,6 +1,6 @@
 # SDLC Domain Template
 
-A language-agnostic template for setting up the Domain/Problem documentation
+A language-agnostic template for setting up the Domain/Task documentation
 structure used by this agent system. Clone this repository as a new project
 root (preferred) or copy its `docs/` contents into an existing project. The
 domain files come pre-filled with working defaults; answer the clarifying
@@ -33,7 +33,7 @@ This template provides the skeleton for three layers of documentation:
                 │ Tasks cite and update
                 ▼
 ┌─────────────────────────────────────────┐
-│        PROBLEM LAYER (Per Task)         │
+│        TASK LAYER (Per Task)          │
 │                                        │
 │  plan.md      ← Agent proposes → Human approves
 │  context.md   ← Deep-dive into domain    │

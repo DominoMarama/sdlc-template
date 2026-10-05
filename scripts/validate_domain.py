@@ -311,7 +311,7 @@ def main():
         print("✅ All domain checks passed!")
         print()
         print("Your domain documentation is properly set up. You can now proceed")
-        print("with tasks, following the Domain/Problem split.")
+        print("with tasks, following the Domain/Task split.")
         sys.exit(0)
     else:
         print(f"❌ {len(all_errors)} error(s) found:")
