@@ -139,6 +139,17 @@ error handling pattern — put these in `conventions.md`.
 Define success criteria so the agent and human can agree on when a
 task is complete. This goes in each task's `goals.json`.
 
+### 7. What version control system do you use?
+
+Specify your VCS and any repository conventions. Examples:
+- "Git, with commits reviewed before push"
+- "Git with conventional commit messages"
+- "No remote repo yet — local development only"
+- "Git with protected main branch, PR required"
+
+Update `constraints.md` (dependency rules, push policies) and
+`conventions.md` (commit message format, branching strategy) as needed.
+
 ## File-by-File Guide
 
 All domain files are pre-filled with working defaults. Review them and fill

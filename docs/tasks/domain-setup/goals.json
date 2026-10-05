@@ -1,12 +1,12 @@
 {
   "task_id": "DOMAIN-SETUP",
-  "title": "Domain Setup \u2014 Review and Customize Pre-filled Domain Files",
-  "description": "Set up the domain documentation for a new project. The domain files come pre-filled with working defaults. This task reviews them, answers the clarifying questions in SETUP.md, creates a project-specific README.md, and customizes them for your specific project.",
+  "title": "Domain Setup — Review and Customize Pre-filled Domain Files",
+  "description": "Set up the domain documentation for a new project. The domain files come pre-filled with working defaults. This task reviews them, answers the clarifying questions in SETUP.md, creates a project README.md by synthesizing the customized domain, and customizes them for your specific project.",
   "goals": [
     {
       "id": "G1",
       "title": "Review and customize domain files",
-      "description": "Read each domain file (DOMAIN.md, capabilities.md, conventions.md, constraints.md, terminology.md), identify what needs project-specific customization, and fill in the details. The files come pre-filled with working defaults \u2014 only customize where your project differs.",
+      "description": "Read each domain file (DOMAIN.md, capabilities.md, conventions.md, constraints.md, terminology.md), identify what needs project-specific customization, and fill in the details. The files come pre-filled with working defaults — only customize where your project differs.",
       "steps": [
         {
           "order": 1,
@@ -71,6 +71,11 @@
           "order": 6,
           "action": "Answer Question 6: What does done look like for your project?",
           "file": "SETUP.md"
+        },
+        {
+          "order": 7,
+          "action": "Answer Question 7: What version control system do you use?",
+          "file": "SETUP.md"
         }
       ],
       "dependencies": [
@@ -80,23 +85,23 @@
     },
     {
       "id": "G3",
-      "title": "Create project README",
-      "description": "Convert the template's SETUP.md into your project's README.md. This involves tailoring the quick start instructions, replacing generic examples with your project specifics, and moving the clarifying questions to an appendix or separate document.",
+      "title": "Create project README.md",
+      "description": "Create the project README.md by synthesizing the customized domain files and your answers. This produces a GitHub-style introduction that reflects your actual project, not a converted template.",
       "steps": [
         {
           "order": 1,
-          "action": "Read SETUP.md and identify content that is project-specific vs. template-generic",
-          "file": "SETUP.md"
+          "action": "Synthesize project README from customized domain files and answers",
+          "file": "README.md"
         },
         {
           "order": 2,
-          "action": "Create README.md with project introduction, SDLC concepts, and quick start",
+          "action": "Write README.md with project introduction, SDLC concepts, and quick start",
           "file": "README.md"
         },
         {
           "order": 3,
-          "action": "Move clarifying questions to appendix or keep as-is if they apply",
-          "file": "README.md"
+          "action": "Keep clarifying questions in SETUP.md as the living template guide",
+          "file": "SETUP.md"
         }
       ],
       "dependencies": [
@@ -162,7 +167,7 @@
       "status": "pending"
     },
     {
-      "id": "G5",
+      "id": "G6",
       "title": "Initialize Project Layer",
       "description": "Create docs/project/ with the placeholder structure so tasks have a place to store task-agnostic knowledge.",
       "steps": [
@@ -177,7 +182,8 @@
       ],
       "dependencies": [
         "G1",
-        "G2"
+        "G2",
+        "G3"
       ],
       "status": "pending"
     }

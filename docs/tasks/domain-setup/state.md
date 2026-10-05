@@ -2,8 +2,9 @@
 
 > This file tracks the progress of domain setup. The domain is only ready
 > to load into the system prompt when all clarifying questions are answered,
-> domain files are customized where needed, a project README.md is created,
-> and `validate_domain.py` exits with code 0.
+> domain files are customized where needed, a project README.md is created
+> by synthesizing the customized domain, `validate_domain.py` exits with
+> code 0, and the project layer is initialized.
 
 ---
 
@@ -23,7 +24,7 @@
 |---|---|---|
 | **[G1]** | Review domain files for customization needs | ⏳ Pending |
 | **[G2]** | Answer clarifying questions in SETUP.md | ⏳ Pending |
-| **[G3]** | Create project README.md from SETUP.md | ⏳ Pending |
+| **[G3]** | Create project README.md | ⏳ Pending — synthesize customized domain into README |
 | **[G4]** | Research dependencies and patterns | ⏳ Pending |
 | **[G5]** | Run validate_domain.py to gate | ⏳ Pending |
 
@@ -51,8 +52,8 @@
 
 | Status | Details |
 |---|---|
-| **Template README** | SETUP.md reviewed, project-specific content identified |
-| **Project README.md** | ⏳ To create — convert SETUP.md to GitHub-style intro |
+| **Template README** | SETUP.md serves as the living template guide |
+| **Project README.md** | ⏳ To create — synthesize customized domain files and answers |
 
 ## Last Updated
 
@@ -62,10 +63,11 @@
 
 **Important:** The domain is only ready to load into the system prompt when:
 
-1. All clarifying questions in SETUP.md have been answered
+1. All clarifying questions in SETUP.md have been answered (7 questions)
 2. Domain files have been customized where project-specific rules differ from defaults
-3. A project README.md has been created (converted from SETUP.md)
+3. A project README.md has been created (synthesized from customized domain)
 4. `validate_domain.py` exits with code 0
-5. This state.md shows "✅ Complete" for Goal G5
+5. This state.md shows "✅ Complete" for Goal G5 (Validate and finalize)
+6. This state.md shows "✅ Complete" for Goal G6 (Initialize Project Layer)
 
 Do not load this domain until then.
