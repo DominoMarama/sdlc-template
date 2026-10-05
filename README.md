@@ -12,9 +12,9 @@ as tasks accumulate, this prompt grows unwieldy, rules get mixed with task-speci
 details, and agents start making decisions based on outdated or conflicting
 information. The result: drift, inconsistent code, and surprises.
 
-## The Solution: Domain/Problem Split
+## The Solution: Three-Layer Documentation
 
-This template implements a two-layer documentation structure:
+This template implements a three-layer documentation structure:
 
 ```
 ┌─────────────────────────────────────────┐
@@ -30,7 +30,17 @@ This template implements a two-layer documentation structure:
              │ Loaded once, referenced always
              ▼
 ┌─────────────────────────────────────────┐
-│        PROBLEM LAYER (Per Task)         │
+│      PROJECT LAYER (Task-Agnostic)      │
+│  docs/project/ — grows over time       │
+│  • research/     — research notes     │
+│  • design/       — UI mocks, specs    │
+│  • reference/    — class definitions  │
+│  • architecture/ — system diagrams    │
+└────────────┬────────────────────────────┘
+             │ Tasks cite and update
+             ▼
+┌─────────────────────────────────────────┐
+│       PROBLEM LAYER (Per Task)          │
 │  docs/tasks/<task-id>/ — task-specific │
 │  • plan.md      — agent proposes       │
 │  • context.md   — deep-dive lookup    │
@@ -40,11 +50,13 @@ This template implements a two-layer documentation structure:
 ```
 
 **The domain layer is your constitution** — stable, always-present rules that
-never change per task. **The problem layer is your execution log** — task-specific
+never change per task. **The project layer is your growing knowledge base** —
+task-agnostic facts that accumulate so future tasks cite and update rather than
+re-discover. **The problem layer is your execution log** — task-specific
 instantiation that gets created, approved, and completed.
 
-This separation prevents agents from mixing general knowledge with task specifics,
-a common failure mode in agentic systems.
+This three-layer separation prevents agents from mixing general knowledge with
+task specifics, a common failure mode in agentic systems.
 
 ## Why Use This Template
 
@@ -83,6 +95,11 @@ cd my-project
 │   │   ├── conventions.md          # Naming, style, RAII, Doxygen
 │   │   ├── constraints.md          # Memory safety, build rules, security
 │   │   └── terminology.md          # Glossary with C++ terms
+│   ├── project/                    # ← TASK-AGNOSTIC (grows over time)
+│   │   ├── research/               # Research notes, quick references
+│   │   ├── design/                 # UI mocks, architecture specs
+│   │   ├── reference/              # Class definitions, API docs
+│   │   └── architecture/           # System diagrams, data models
 │   └── tasks/                      # ← TASK-SPECIFIC (per-request)
 │       ├── TASK_TEMPLATE.md        # Template for new tasks
 │       ├── example-task/           # Example: TDD RenderWindow + SDL3/ImGui
@@ -142,7 +159,8 @@ cd my-project
 
 | Term | Meaning |
 |---|---|
-| **Domain** | Always-present knowledge base: C++ conventions, SDL3/ImGui setup, constraints |
+| **Domain Layer** | Always-present knowledge base: C++ conventions, SDL3/ImGui setup, constraints |
+| **Project Layer** | Task-agnostic knowledge: research notes, UI mocks, class definitions, quick references |
 | **Problem** | Task-specific instantiation: goals, inputs, approved plan, overrides |
 | **System Prompt** | Where the domain layer lives — injected once at session start |
 | **Plan Approval** | Human review step where the problem layer is validated against the domain |

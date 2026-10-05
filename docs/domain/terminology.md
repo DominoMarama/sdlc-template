@@ -8,6 +8,7 @@
 | Term | Definition |
 |---|---|
 | **Domain Layer** | The always-present knowledge base (`docs/domain/`). Contains conventions, constraints, and capabilities. Loaded once at session start. This is the project's constitution — stable across all tasks. |
+| **Project Layer** | Task-agnostic knowledge between domain and problem (`docs/project/`). Accumulates research notes, UI mocks, class definitions, and quick references. Tasks cite and update it rather than re-discovering facts. |
 | **Problem** | The task-specific instantiation (`docs/tasks/<task-id>/`). Contains goals, approved plan, and current state for this specific task. |
 | **System Prompt** | The initial context injected at session start, containing the full DOMAIN.md. This is where agents always have access to project knowledge. |
 | **Plan** | A sequence of steps the agent proposes to accomplish the task. Written in `plan.md`, approved by human before any code is written. |
@@ -17,7 +18,6 @@
 | **Invariant** | A rule that must always be true, regardless of task. |
 | **Constraint** | A limitation or restriction that applies to the project. |
 | **Capability** | Something the agent is allowed to do — not building.
-| **Project Layer** | Task-agnostic knowledge between domain and problem (`docs/project/`). Accumulates research notes, UI mocks, class definitions, and quick references. Tasks cite and update it rather than re-discovering facts. |
 | **Build Gate** | Human-only: agent writes configuration, human runs the build. |
 
 ---

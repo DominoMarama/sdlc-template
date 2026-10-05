@@ -8,7 +8,7 @@ questions to customize them for your project.
 
 ## What This Is
 
-This template provides the skeleton for two layers of documentation:
+This template provides the skeleton for three layers of documentation:
 
 ```
 ┌─────────────────────────────────────────┐
@@ -21,6 +21,16 @@ This template provides the skeleton for two layers of documentation:
 │  DOMAIN.md         ← Your constitution │
 └───────────────┬─────────────────────────┘
                 │ Loaded once, referenced always
+                ▼
+┌─────────────────────────────────────────┐
+│      PROJECT LAYER (Task-Agnostic)      │
+│                                        │
+│  research/    ← Research notes         │
+│  design/      ← UI mocks, specs        │
+│  reference/   ← Class definitions      │
+│  architecture/← System diagrams        │
+└───────────────┬─────────────────────────┘
+                │ Tasks cite and update
                 ▼
 ┌─────────────────────────────────────────┐
 │        PROBLEM LAYER (Per Task)         │
@@ -65,16 +75,17 @@ After either method, continue with the remaining steps:
    with working defaults, no placeholders.
 
 2. **Answer** the clarifying questions in this README to fill in the
-   blanks appropriately. — they come pre-filled
-   with working defaults, no placeholders.
-4. **Answer** the clarifying questions in this README to fill in the
-   blanks appropriately.
-5. **Complete the domain-setup task** in `docs/tasks/domain-setup/`. This
+   blanks appropriately for your project.
+
+3. **Complete the domain-setup task** in `docs/tasks/domain-setup/`. This
    is the first task for any new project. The domain is only loadable when
    this task completes with zero placeholders remaining.
-6. **Create** the project layer: `docs/project/` with research/, design/,
-   reference/, architecture/ subdirectories — tasks will populate these as they go
-7. **Load** the completed DOMAIN.md into your agent's system prompt at
+
+4. **Create** the project layer: `docs/project/` with research/, design/,
+   reference/, architecture/ subdirectories. Tasks will populate these as they go
+   with task-agnostic knowledge (research notes, UI mocks, class definitions).
+
+5. **Load** the completed DOMAIN.md into your agent's system prompt at
    session start. The domain must pass validate_domain.py (exit code 0)
    before loading.
 
