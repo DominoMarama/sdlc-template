@@ -38,7 +38,7 @@ this task completes with all clarifying questions answered and
 | Symptom | Recovery |
 |---|---|
 | **validate_domain.py fails** | 1. Run it to see exact errors<br>2. Fix each error one at a time<br>3. Re-run until exit code 0 |
-| **Unclear what to customize** | 1. Re-read the README.md clarifying questions<br>2. Check which file section matches your question<br>3. If still unclear, ask the human for guidance |
+| **Unclear what to customize** | 1. Re-read the SETUP.md clarifying questions<br>2. Check which file section matches your question<br>3. If still unclear, ask the human for guidance |
 | **Goal is too large for this task** | 1. Cite `conventions.md`'s "Task decomposition" capability<br>2. Propose splitting into a separate task with its own plan/context/goals/state |
 
 ### Quality Gates

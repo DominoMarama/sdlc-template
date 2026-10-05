@@ -1,12 +1,12 @@
 {
   "task_id": "DOMAIN-SETUP",
-  "title": "Domain Setup — Review and Customize Pre-filled Domain Files",
-  "description": "Set up the domain documentation for a new project. The domain files come pre-filled with working defaults. This task reviews them, answers the clarifying questions in README.md, and customizes them for your specific project.",
+  "title": "Domain Setup \u2014 Review and Customize Pre-filled Domain Files",
+  "description": "Set up the domain documentation for a new project. The domain files come pre-filled with working defaults. This task reviews them, answers the clarifying questions in SETUP.md, creates a project-specific README.md, and customizes them for your specific project.",
   "goals": [
     {
       "id": "G1",
       "title": "Review and customize domain files",
-      "description": "Read each domain file (DOMAIN.md, capabilities.md, conventions.md, constraints.md, terminology.md), identify what needs project-specific customization, and fill in the details. The files come pre-filled with working defaults — only customize where your project differs.",
+      "description": "Read each domain file (DOMAIN.md, capabilities.md, conventions.md, constraints.md, terminology.md), identify what needs project-specific customization, and fill in the details. The files come pre-filled with working defaults \u2014 only customize where your project differs.",
       "steps": [
         {
           "order": 1,
@@ -40,44 +40,72 @@
     {
       "id": "G2",
       "title": "Answer clarifying questions",
-      "description": "Answer all 6 clarifying questions in README.md to gather project information and fill in the blanks in the domain files.",
+      "description": "Answer all 6 clarifying questions in SETUP.md to gather project information and fill in the blanks in the domain files.",
       "steps": [
         {
           "order": 1,
           "action": "Answer Question 1: What is your project? (language/paradigm)",
-          "file": "README.md"
+          "file": "SETUP.md"
         },
         {
           "order": 2,
           "action": "Answer Question 2: What are your non-negotiable constraints?",
-          "file": "README.md"
+          "file": "SETUP.md"
         },
         {
           "order": 3,
           "action": "Answer Question 3: What is your sandbox's build access policy?",
-          "file": "README.md"
+          "file": "SETUP.md"
         },
         {
           "order": 4,
           "action": "Answer Question 4: What capabilities should the agent have?",
-          "file": "README.md"
+          "file": "SETUP.md"
         },
         {
           "order": 5,
           "action": "Answer Question 5: What naming/convention rules apply?",
-          "file": "README.md"
+          "file": "SETUP.md"
         },
         {
           "order": 6,
           "action": "Answer Question 6: What does done look like for your project?",
-          "file": "README.md"
+          "file": "SETUP.md"
         }
       ],
-      "dependencies": ["G1"],
+      "dependencies": [
+        "G1"
+      ],
       "status": "pending"
     },
     {
       "id": "G3",
+      "title": "Create project README",
+      "description": "Convert the template's SETUP.md into your project's README.md. This involves tailoring the quick start instructions, replacing generic examples with your project specifics, and moving the clarifying questions to an appendix or separate document.",
+      "steps": [
+        {
+          "order": 1,
+          "action": "Read SETUP.md and identify content that is project-specific vs. template-generic",
+          "file": "SETUP.md"
+        },
+        {
+          "order": 2,
+          "action": "Create README.md with project introduction, SDLC concepts, and quick start",
+          "file": "README.md"
+        },
+        {
+          "order": 3,
+          "action": "Move clarifying questions to appendix or keep as-is if they apply",
+          "file": "README.md"
+        }
+      ],
+      "dependencies": [
+        "G2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "G4",
       "title": "Deep-dive research",
       "description": "Research dependencies, patterns, and tools from authoritative documentation sources (latest stable versions) and document findings where relevant in the domain files.",
       "steps": [
@@ -97,11 +125,13 @@
           "file": "docs/domain/conventions.md"
         }
       ],
-      "dependencies": ["G2"],
+      "dependencies": [
+        "G3"
+      ],
       "status": "pending"
     },
     {
-      "id": "G4",
+      "id": "G5",
       "title": "Validate and finalize",
       "description": "Run validate_domain.py, confirm exit code 0, and update state.md to mark completion. The domain is ready to load into the system prompt.",
       "steps": [
@@ -126,7 +156,9 @@
           "file": "docs/tasks/domain-setup/state.md"
         }
       ],
-      "dependencies": ["G2", "G3"],
+      "dependencies": [
+        "G4"
+      ],
       "status": "pending"
     }
   ],
