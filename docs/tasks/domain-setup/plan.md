@@ -2,7 +2,7 @@
 
 > **This is the first task for any new project.** Complete this task before
 > any code tasks. The goal is to review the pre-filled domain files, answer
-> the clarifying questions in the README, and customize them for your specific
+> the clarifying questions in SETUP.md, and customize them for your specific
 > project.
 
 ---
@@ -11,7 +11,7 @@
 
 Set up the domain documentation with project-specific rules and conventions.
 The domain files come **pre-filled with working defaults** — your job is to
-review them, answer the clarifying questions in `README.md`, and fill in
+review them, answer the clarifying questions in `SETUP.md`, and fill in
 project-specific details where indicated.
 
 **Critical:** The domain is only ready to load into the system prompt when
@@ -23,7 +23,7 @@ this task completes with all clarifying questions answered and
 | ID | Title | Description |
 |---|---|---|
 | **G1** | Review and customize domain files | Read each domain file, identify what needs project-specific customization, and fill in the details |
-| **G2** | Answer clarifying questions | Answer all 6 clarifying questions in `README.md` to gather project information |
+| **G2** | Answer clarifying questions | Answer all 6 clarifying questions in `SETUP.md` to gather project information |
 | **G3** | Deep-dive research | Research dependencies, patterns, and tools from authoritative documentation sources (latest stable versions) |
 | **G4** | Validate and finalize | Run `validate_domain.py`, confirm exit code 0, and update state.md |
 
@@ -43,7 +43,7 @@ this task completes with all clarifying questions answered and
 
 ### Quality Gates
 
-- [ ] All 6 clarifying questions in README.md have been answered
+- [ ] All 6 clarifying questions in SETUP.md have been answered
 - [ ] Domain files have been reviewed and customized where needed
 - [ ] `validate_domain.py` exits with code 0
 - [ ] State.md updated after each step
