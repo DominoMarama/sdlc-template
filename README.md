@@ -60,13 +60,13 @@ task specifics, a common failure mode in agentic systems.
 
 ## Why Use This Template
 
-| If you... | This template helps because... |
-|---|---|
-| Run agentic AI for C++ development | Pre-filled domain files come with SDL3/ImGui/C++20 conventions, memory safety rules, and CRT Debug Heap verification |
-| Manage multiple projects | Each project gets its own domain — no cross-project contamination |
-| Want reproducible builds | Dependency pinning with commit IDs, CPM.cmake management |
-| Need human-in-the-loop control | Plan approval gate, build gate, and validation script prevent drift |
-| Work with agents that lose context | The domain/problem split keeps the system prompt lean and consistent |
+| If you...                          | This template helps because...                                                                                       |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Run agentic AI for any language   | Pre-filled domain files come with working defaults; customize via SETUP.md                                          |
+| Manage multiple projects          | Each project gets its own layer — no cross-project contamination                                                     |
+| Want reproducible setups          | Dependency pinning, build gates, and validation prevent "it worked on my machine" drift                              |
+| Need human-in-the-loop control    | Plan approval gate, build gate, and validation script prevent drift                                                 |
+| Work with agents that lose context| The domain/project/problem split keeps the system prompt lean and consistent                                        |
 
 ## Quick Start
 
@@ -83,43 +83,41 @@ cd my-project
 
 ## File Structure
 
+The template provides this skeleton. Fill in `docs/domain/` with your project's
+rules and conventions, then populate `docs/project/` and `docs/tasks/` as you work.
+
 ```
 .
-├── README.md                       # This file — SDLC concepts and overview
-├── SETUP.md                        # Setup guide, deployment methods, clarifying questions
-├── LICENSE                         # MIT License
+├── README.md                    # This file — SDLC concepts and overview
+├── SETUP.md                     # Setup guide, deployment methods, clarifying questions
+├── LICENSE                      # MIT License
 ├── docs/
-│   ├── domain/                     # ← ALWAYS PRESENT (load once)
-│   │   ├── DOMAIN.md               # Master domain document
-│   │   ├── capabilities.md         # Agent capabilities
-│   │   ├── conventions.md          # Naming, style, RAII, Doxygen
-│   │   ├── constraints.md          # Memory safety, build rules, security
-│   │   └── terminology.md          # Glossary with C++ terms
-│   ├── project/                    # ← TASK-AGNOSTIC (grows over time)
-│   │   ├── research/               # Research notes, quick references
-│   │   ├── design/                 # UI mocks, architecture specs
-│   │   ├── reference/              # Class definitions, API docs
-│   │   └── architecture/           # System diagrams, data models
-│   └── tasks/                      # ← TASK-SPECIFIC (per-request)
-│       ├── TASK_TEMPLATE.md        # Template for new tasks
-│       ├── example-task/           # Example: TDD RenderWindow + SDL3/ImGui
+│   ├── domain/                  # ← ALWAYS PRESENT (load once)
+│   │   ├── DOMAIN.md            # Master domain document
+│   │   ├── capabilities.md      # Agent capabilities
+│   │   ├── conventions.md       # Naming, style, conventions
+│   │   ├── constraints.md       # Non-negotiable rules
+│   │   └── terminology.md       # Glossary of key terms
+│   ├── project/                 # ← TASK-AGNOSTIC (grows over time)
+│   │   ├── research/            # Research notes, quick references
+│   │   ├── design/              # UI mocks, architecture specs
+│   │   ├── reference/           # Class definitions, API docs
+│   │   └── architecture/        # System diagrams, data models
+│   └── tasks/                   # ← TASK-SPECIFIC (per-request)
+│       ├── TASK_TEMPLATE.md     # Template for new tasks
+│       ├── domain-setup/        # ← First task for new projects
 │       │   ├── plan.md
 │       │   ├── context.md
 │       │   ├── goals.json
 │       │   └── state.md
-│       └── initial-build/          # INITIAL-BUILD: scaffold verification
+│       └── <task-id>/          # ← Created per task
 │           ├── plan.md
 │           ├── context.md
 │           ├── goals.json
 │           └── state.md
-├── cmake/
-│   └── CPM.cmake                   # CPM dependency manager
-├── cpm-packages.txt               # Pinned dependency versions
-├── src/
-│   └── main.cpp                    # Initial scaffold
-├── tests/                         # Agent-written tests
-├── CMakeLists.txt                 # Root CMake config
-└── build/                         # Build output (git-ignored)
+├── scripts/
+│   └── validate_domain.py       # Domain validation script
+└── .gitignore
 ```
 
 ## The SDLC Cycle
@@ -128,19 +126,19 @@ cd my-project
   1. SPEC (Domain docs)      ← Written once, referenced always
          │
          ▼
-  2. PLAN (Agent proposes)   ← Human approves BEFORE code
+  2. PLAN (Agent proposes)   ← Human approves BEFORE any code
          │
          ▼
-  3. CODE (Agent implements) ← Smart pointers, RAII, Doxygen
+  3. CODE (Agent implements) ← Follow domain conventions
          │
          ▼
-  4. CMAKE (Agent configures)← Human reviews
+  4. CONFIGURE (Agent configures) ← Human reviews
          │
          ▼
-  5. BUILD (HUMAN ONLY)      ← Human runs cmake/build/verify
+  5. BUILD (HUMAN ONLY)      ← Human runs build/verify
          │
          ▼
-  6. VERIFY (Human + gtest)  ← Does code match spec? Memory safe?
+  6. VERIFY (Human)          ← Does code match spec? All constraints met?
          │
          ▼
   7. UPDATE DOCS             ← Updated WITH code, not after
@@ -148,24 +146,22 @@ cd my-project
 
 ## Key Rules
 
-1. **DOMAIN.md is the constitution** — agents reference it for every C++ decision.
+1. **DOMAIN.md is the constitution** — agents reference it for every decision.
 2. **No plan approval → no code** — the human-in-the-loop gate prevents drift.
-3. **Agent writes code, human builds** — never run cmake with build tools.
-4. **No raw `new`/`delete`** — smart pointers and RAII are non-negotiable.
-5. **SDL3 static build only** — `SDL_BUNDLE_STATIC_RUNTIME ON`, no DLLs.
-6. **If you can't cite a domain rule, don't proceed.**
+3. **Agent writes code/config, human builds** — never run build tools.
+4. **If you can't cite a domain rule, don't proceed.**
 
 ## Glossary
 
 | Term | Meaning |
 |---|---|
-| **Domain Layer** | Always-present knowledge base: C++ conventions, SDL3/ImGui setup, constraints |
+| **Domain Layer** | Always-present knowledge base: conventions, constraints, capabilities |
 | **Project Layer** | Task-agnostic knowledge: research notes, UI mocks, class definitions, quick references |
 | **Problem** | Task-specific instantiation: goals, inputs, approved plan, overrides |
 | **System Prompt** | Where the domain layer lives — injected once at session start |
 | **Plan Approval** | Human review step where the problem layer is validated against the domain |
 | **Deep Dive** | On-demand lookup of specific domain sections when uncertain |
-| **Build Gate** | Human-only: agent writes CMakeLists.txt, human runs cmake/build |
+| **Build Gate** | Human-only: agent writes configuration, human runs build |
 
 ## License
 

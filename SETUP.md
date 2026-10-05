@@ -95,17 +95,15 @@ Before you finalize the domain, answer these questions for your project:
 
 ### 1. What is your project?
 
-What language/paradigm does it use? (e.g., Python, JavaScript, Rust,
-Go, etc.) This determines what goes into `capabilities.md` and
-`conventions.md`.
+What language/paradigm does it use? This determines what goes into
+`capabilities.md` and `conventions.md`.
 
 ### 2. What are your non-negotiable constraints?
 
 List rules that must always be true, regardless of task. Examples:
 - No external dependencies without approval
 - All functions must have unit tests
-- Type safety required (no `any`/`void`)
-- Linting with specific toolchain
+- Linting/formatting with specific toolchain
 
 Write these in `constraints.md`.
 
@@ -117,8 +115,8 @@ Specify whether agents can run build tools, and if so, which ones. Update
 
 - "Agents cannot run any build tools — human runs all builds"
 - "Agents can run `go build` but not `docker build`"
-- "Agents can write CMakeLists.txt; human runs cmake/build"
-- "Agents can run `npm install` and `npm run build`"
+- "Agents can configure build files; human runs the build"
+- "Agents can run `npm ci` and `npm run build`"
 
 ### 4. What capabilities should the agent have?
 
@@ -149,9 +147,9 @@ in project-specific details where indicated.
 ### DOMAIN.md
 
 The constitution of your project. Already includes:
-- Capabilities (code generation, review, CMake config)
+- Capabilities (code generation, review, configuration)
 - Conventions (naming, SDLC workflow)
-- Constraints (memory safety, dependencies, build rules, security)
+- Constraints (dependencies, build rules, security)
 - Terminology (domain/problem/system prompt/plan/state/goal/etc.)
 
 Fill in additional project-specific constraints and conventions as needed.
@@ -159,7 +157,7 @@ Fill in additional project-specific constraints and conventions as needed.
 ### capabilities.md
 
 List what the agent is allowed to do: code generation, refactoring,
-test writing, CMake configuration, etc. Also list what it cannot do
+test writing, configuration, etc. Also list what it cannot do
 without explicit approval.
 
 ### conventions.md
@@ -203,11 +201,7 @@ pre-filled with working defaults — review them and answer the clarifying
 questions to customize for your specific project. No placeholder renaming
 or file creation is needed.
 
-
-
----
-
-**Note:** This template is language-agnostic. The C++-specific content
-from the original project (SDL3, ImGui, CPM.cmake, etc.) has been
-stripped out. Review the pre-filled files and customize them for your
-project's specific needs.
+The template itself contains no language-specific code or dependencies.
+All project-specific conventions, constraints, and capabilities are filled
+in during setup. The pre-filled files provide a clean, neutral starting
+point that you adapt to your own technology stack.
